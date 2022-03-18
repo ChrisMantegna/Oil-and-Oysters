@@ -1,0 +1,52 @@
+---
+title: "IntersectBed"
+author: "SR Code"
+date: "3/18/2022"
+output: html_document
+---
+```{bash}
+#figure out where you are
+pwd
+
+```
+```{bash}
+#
+cd ../data
+
+wget --no-check-certificate http://eagle.fish.washington.edu/Cvirg_tracks/C_virginica-3.0_Gnomon_mRNA.gff3
+
+```
+```{bash}
+
+```
+
+```{bash}
+cd ../data
+wget --no-check-certificate https://eagle.fish.washington.edu/Cvirg_tracks/C_virginica-3.0_Gnomon_genes.bed
+```
+
+```{bash}
+/home/shared/bedtools2/bin/bedtools intersect \
+-a ../analysis/oilexp_dml.bed \
+-b ../data/C_virginica-3.0_Gnomon_mRNA.gff3 \
+-wb | head
+
+```
+
+```{bash}
+
+/home/shared/bedtools2/bin/bedtools intersect \
+-a ../analysis/oilexp_dml.bed \
+-b ../data/C_virginica-3.0_Gnomon_genes.bed \
+-wb | head
+
+```
+```{bash}
+
+/home/shared/bedtools2/bin/bedtools intersect \
+-a ../analysis/oilexp_dml.bed \
+-b ../data/C_virginica-3.0_Gnomon_genes.bed \
+-wb \
+> ../analysis/dmlIntersectGenes.txt
+
+```
